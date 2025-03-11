@@ -1,13 +1,15 @@
-ESX = nil
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-	end
-end)
+if (GetResourceState("es_extended") == "started") then
+    if (exports["es_extended"] and exports["es_extended"].getSharedObject) then
+        ESX = exports["es_extended"]:getSharedObject()
+    else
+        TriggerEvent("esx:getSharedObject", function(obj)
+            ESX = obj
+        end)
+    end
+end
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
 	        local sleep = 500  
 		local playerPed = PlayerPedId()
