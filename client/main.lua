@@ -34,14 +34,12 @@ CreateThread(function()
 					if IsControlJustReleased(0, 38) then
 						ESX.ShowNotification(_U('used'))
 						TriggerServerEvent('lama_ring:triggerBell', v.Job, v.Image, v.Title, v.SubTitle, v.Text)					
-						if Config.UseInteractSound then
+						if Config.UseInteractSound and GetResourceState('interact-sound') == "started" then
 							TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 1.5, Config.SoundName, 1.0)
 						end
-
 					end	
 				end
 			end
-			
 		end
 		Wait(sleep)
 	end			
