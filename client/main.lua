@@ -1,9 +1,10 @@
 if (GetResourceState("es_extended") == "started") then
     if (exports["es_extended"] and exports["es_extended"].getSharedObject) then
         ESX = exports["es_extended"]:getSharedObject()
-	elseif (GetResourceState('qb-core') == 'started') and exports['qb-core'].GetCoreObject then
+	elseif GetResourceState('qb-core') == 'started' then
+		ESX = {}
 	QB = exports['qb-core']:GetCoreObject()
-	ESX = {}
+
 	else
         TriggerEvent("esx:getSharedObject", function(obj)
             ESX = obj
