@@ -1,12 +1,22 @@
 if (GetResourceState("es_extended") == "started") then
     if (exports["es_extended"] and exports["es_extended"].getSharedObject) then
         ESX = exports["es_extended"]:getSharedObject()
-    else
+	elseif (GetResourceState('qb-core') == 'started') and exports['qb-core'].GetCoreObject then
+	QB = exports['qb-core']:GetCoreObject()
+	ESX = {}
+	else
         TriggerEvent("esx:getSharedObject", function(obj)
             ESX = obj
         end)
     end
 end
+
+if QB then
+	ESX.ShowHelpNotification = QB.Functions.Notify
+	ESX.ShowNotification = QB.Functions.Notify
+end
+
+
 
 
 CreateThread(function()
