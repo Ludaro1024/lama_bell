@@ -18,3 +18,7 @@ Let player ring a bell to notify a job about them waiting. It works with ESX and
 4. Rename from lama_bell-master to lama_bell
 5. Modify the config to your linking
 6. Done!
+
+
+# Modify by Ludaro
+- made it work with QB (has to be verified i dont like qb and just did it bc i was bored)
